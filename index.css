@@ -158,6 +158,9 @@ button:active {
     text-align: center;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
     border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 /* O número gigante que vai rodar na tela */
@@ -186,7 +189,22 @@ button:active {
     flex-direction: row; /* Lado a lado no computador */
     flex-wrap: wrap;     /* Um embaixo do outro se for celular */
     justify-content: center;
-    align-items: stretch; /* MUDANÇA: Força os dois cards a terem exatamente a mesma altura */
+    align-items: stretch; /* Força os dois cards a terem exatamente a mesma altura */
     gap: 30px; 
     width: 100%;
+}
+
+/* --- ESTILO DO RODAPÉ (FOOTER) CORRIGIDO FORA DA CHAVE --- */
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px; 
+}
+
+footer p {
+    font-size: 15px; /* MUDANÇA: Aumentei um pouquinho o tamanho */
+    color: #000000 !important;
+    font-weight: 800; /* MUDANÇA: Ficou bem negrito e encorpado kkk */
+    letter-spacing: 0.5px;
 }
