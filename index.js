@@ -115,15 +115,35 @@ function buscar() {
     const num = Number(inputNum);
     const item = rifa.find(i => i.numero === num);
 
-    if (item) {
-        resultado.innerHTML = `
-            <div class="card-sucesso">
-                <p>🎟️ <strong>Número:</strong> ${item.numero}</p>
-                <p>👤 <strong>Nome:</strong> ${item.nome}</p>
-                <p>💼 <strong>Vendedor:</strong> ${item.vendedor}</p>
-            </div>
-        `;
-    } else {
-        resultado.innerHTML = `<div class="erro">Número ${num} não encontrado ou não vendido! 😢</div>`;
-    }
+    // --- INÍCIO DA CONTAGEM REGRESSIVA ---
+    let segundos = 3;
+    
+    // Mostra a mensagem inicial do suspense kkk
+    resultado.innerHTML = `<div class="aguardando">Consultando sistema... ⏳ <strong>${segundos}s</strong></div>`;
+
+    // Cria o intervalo que roda a cada 1 segundo
+    const contagem = setInterval(() => {
+        segundos--;
+
+        if (segundos > 0) {
+            // Atualiza os segundos na tela (3, 2, 1...)
+            resultado.innerHTML = `<div class="aguardando">Consultando sistema... ⏳ <strong>${segundos}s</strong></div>`;
+        } else {
+            clearInterval(contagem); // Para o cronômetro para não rodar eternamente
+
+            // Só agora entrega o resultado real que você já tinha criado!
+            if (item) {
+                resultado.innerHTML = `
+                    <div class="card-sucesso">
+                        <p>🎫 <strong>Número:</strong> ${item.numero}</p>
+                        <p>👤 <strong>Nome:</strong> ${item.nome}</p>
+                        <p>💼 <strong>Vendedor:</strong> ${item.vendedor}</p>
+                    </div>
+                `;
+            } else {
+                resultado.innerHTML = `<div class="erro">Número ${num} não encontrado ou não vendido!</div>`;
+            }
+        }
+    }, 1000); // 1000 milissegundos = 1 segundo
+    // --- FIM DA CONTAGEM REGRESSIVA ---
 }
