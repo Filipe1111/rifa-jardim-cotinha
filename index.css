@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #a3d8f8 0%, #74b9ff 100%);
+    color: #f1f1f6;
+    display: flex;
+    flex-direction: column; 
+    justify-content: flex-start; /* MUDANÇA: Alinha o conteúdo começando do topo da tela */
+    align-items: center;
+    min-height: 100vh;
+    padding: 60px 20px 20px 20px; /* MUDANÇA: Aumentei o primeiro valor (60px) para controlar a altura do logo em relação ao topo da tela */
+    gap: 20px; /* Mantém a distância perfeita entre o logo e o quadrado cinza */
+}
+
+/* ADICIONE ESTE BLOCO para controlar o tamanho do logotipo */
+.logo-topo {
+    max-width: 220px; /* Ajuste o tamanho da imagem por aqui */
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.container {
+    background: rgba(30, 30, 42, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 35px 30px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 8px;
+    color: #ffffff;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: #8a8aa3;
+    margin-bottom: 25px;
+}
+
+.search-box {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    border: 2px solid #2e2e3f;
+    background: #14141f;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+input:focus {
+    border-color: #00e676;
+    box-shadow: 0 0 8px rgba(0, 230, 118, 0.2);
+}
+
+/* Remove as setinhas padrão do input do tipo number */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+button {
+    padding: 14px;
+    width: 100%;
+    cursor: pointer;
+    background: linear-gradient(90deg, #a3d8f8 0%, #a3d8f8 100%);
+    border: none;
+    border-radius: 8px;
+    color: #052e16;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 200, 83, 0.2);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 230, 118, 0.4);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+#resultado {
+    margin-top: 25px;
+    transition: all 0.3s ease;
+}
+
+/* Estilização do bloco de sucesso */
+.card-sucesso {
+    background: rgba(0, 200, 83, 0.1);
+    border: 1px solid rgba(0, 200, 83, 0.3);
+    padding: 15px;
+    border-radius: 8px;
+    text-align: left;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+.card-sucesso p {
+    margin: 6px 0;
+    font-size: 15px;
+    color: #e2e2e9;
+}
+
+.card-sucesso strong {
+    color: #00e676;
+}
+
+/* Estilização do erro */
+.erro {
+    color: #ff5252;
+    background: rgba(255, 82, 82, 0.1);
+    border: 1px solid rgba(255, 82, 82, 0.2);
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
