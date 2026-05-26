@@ -149,6 +149,7 @@ function buscar() {
 }
 
 // --- FUNÇÃO DO SORTEADOR DE RIFA ---
+// --- FUNÇÃO DO SORTEADOR DE RIFA (COM MAIS SUSPENSE!) ---
 function sortear() {
     const display = document.getElementById("numero-sorteado");
     
@@ -157,14 +158,14 @@ function sortear() {
     
     let voltas = 0;
     
-    // Efeito visual: Fica gerando números aleatórios bem rápido por 2 segundos
+    // Diminuí de 100ms para 50ms (os números vão girar DUAS VEZES mais rápido!)
     const efeitoGirar = setInterval(() => {
         let numeroAleatorio = Math.floor(Math.random() * 100) + 1;
         display.innerHTML = numeroAleatorio;
         voltas++;
         
-        // Quando rodar 20 vezes (20 x 100ms = 2 segundos)...
-        if (voltas >= 20) {
+        // 100 voltas x 50ms = 5000ms (5 segundos de puro suspense na tela!)
+        if (voltas >= 100) {
             clearInterval(efeitoGirar); // Para o efeito de girar
             
             // Sorteia o número final definitivo de 1 a 100
@@ -176,5 +177,5 @@ function sortear() {
             // Mostra o número final com o emoji de festa!
             display.innerHTML = `🎉 ${numeroFinal}`;
         }
-    }, 100); // Muda o número a cada 100 milissegundos
+    }, 50); // Velocidade da roleta (muda o número a cada 50 milissegundos)
 }
