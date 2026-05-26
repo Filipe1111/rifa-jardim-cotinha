@@ -10,18 +10,31 @@
 
     <img src="cotinha.png" alt="Logo Jardim Cotinha" class="logo-topo">
 
-<div class="container">
-    <h1>🔎 Consulta da Rifa</h1>
-    <p class="subtitle">Insira o número para verificar o comprador</p>
+    <div class="cards-wrapper">
 
-    <div class="search-box">
-        <input type="number" id="numero" placeholder="Digite o número (1 a 100)" min="1" max="100" onkeydown="if(event.key === 'Enter') buscar()">
-        <button onclick="buscar()">Buscar</button>
-    </div>
+        <div class="container">
+            <h1>🔎 Consulta da Rifa</h1>
+            <p class="subtitle">Insira o número para verificar o comprador</p>
 
-    <div id="resultado"></div>
-</div>
+            <div class="search-box">
+                <input type="number" id="numero" placeholder="Digite o número (1 a 100)" min="1" max="100" onkeydown="if(event.key === 'Enter') buscar()">
+                <button onclick="buscar()">Buscar</button>
+            </div>
 
-<script src="index.js"></script>
+            <div id="resultado"></div>
+        </div>
+
+        <div class="container-sorteio">
+            <h1>🎲 Sortear Número</h1>
+            <p class="subtitle">Clique para sortear um número de 1 a 100</p>
+            
+            <div id="numero-sorteado">--</div>
+            
+            <div class="search-box">
+                <button onclick="sortear()">Sortear</button>
+            </div>
+        </div>
+
+    </div> <script src="index.js"></script>
 </body>
 </html>
