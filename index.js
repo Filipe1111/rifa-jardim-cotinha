@@ -147,3 +147,34 @@ function buscar() {
     }, 1000); // 1000 milissegundos = 1 segundo
     // --- FIM DA CONTAGEM REGRESSIVA ---
 }
+
+// --- FUNÇÃO DO SORTEADOR DE RIFA ---
+function sortear() {
+    const display = document.getElementById("numero-sorteado");
+    
+    // Adiciona a classe de animação que faz o número pulsar enquanto gira kkk
+    display.classList.add("girando");
+    
+    let voltas = 0;
+    
+    // Efeito visual: Fica gerando números aleatórios bem rápido por 2 segundos
+    const efeitoGirar = setInterval(() => {
+        let numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+        display.innerHTML = numeroAleatorio;
+        voltas++;
+        
+        // Quando rodar 20 vezes (20 x 100ms = 2 segundos)...
+        if (voltas >= 20) {
+            clearInterval(efeitoGirar); // Para o efeito de girar
+            
+            // Sorteia o número final definitivo de 1 a 100
+            const numeroFinal = Math.floor(Math.random() * 100) + 1;
+            
+            // Remove a classe de animação para o número parar quieto
+            display.classList.remove("girando");
+            
+            // Mostra o número final com o emoji de festa!
+            display.innerHTML = `🎉 ${numeroFinal}`;
+        }
+    }, 100); // Muda o número a cada 100 milissegundos
+}
